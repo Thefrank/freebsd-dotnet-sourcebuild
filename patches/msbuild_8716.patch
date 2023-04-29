@@ -1,0 +1,19 @@
+From 1f7d6f0aec594df917d1c7516bc63217bae9e3dd Mon Sep 17 00:00:00 2001
+From: Thefrank <1910378+Thefrank@users.noreply.github.com>
+Date: Fri, 28 Apr 2023 20:59:14 -0700
+Subject: [PATCH] Use env for bash path
+
+---
+ build.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build.sh b/build.sh
+index 2d2a01b1ee0..f9a7889f52c 100755
+--- a/build.sh
++++ b/build.sh
+@@ -1,4 +1,4 @@
+-#!/bin/bash
++#!/usr/bin/env bash
+ 
+ SOURCE="${BASH_SOURCE[0]}"
+ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
