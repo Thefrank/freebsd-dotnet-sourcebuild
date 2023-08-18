@@ -1,0 +1,53 @@
+diff --git a/src/redist/targets/GenerateBundledVersions.targets b/src/redist/targets/GenerateBundledVersions.targets
+index 2e9f642b8..1f30c3646 100644
+--- a/src/redist/targets/GenerateBundledVersions.targets
++++ b/src/redist/targets/GenerateBundledVersions.targets
+@@ -141,7 +141,7 @@
+           win-x86;
+           " />
+ 
+-      <NetCore31RuntimePackRids Include="@(NetCore30RuntimePackRids)"/>
++      <NetCore31RuntimePackRids Include="@(NetCore30RuntimePackRids);freebsd-x64"/>
+ 
+       <Net50AppHostRids Include="
+           @(NetCore31RuntimePackRids);
+@@ -262,7 +262,7 @@
+         linux-arm64;
+         " />
+ 
+-      <Net50Crossgen2SupportedRids Include="linux-musl-x64;linux-x64;win-x64" />
++      <Net50Crossgen2SupportedRids Include="linux-musl-x64;linux-x64;win-x64;freebsd-x64" />
+ 
+       <Net60Crossgen2SupportedRids Include="
+           @(Net50Crossgen2SupportedRids);
+@@ -298,6 +298,7 @@
+         @(Net70ILCompilerSupportedRids);
+         osx-x64;
+         osx-arm64;
++        freebsd-x64;
+         " />
+ 
+       <NativeAOTRuntimePackRids Include="
+@@ -314,7 +315,7 @@
+           "
+           />
+ 
+-      <AspNetCore31RuntimePackRids Include="@(AspNetCore30RuntimePackRids)" />
++      <AspNetCore31RuntimePackRids Include="@(AspNetCore30RuntimePackRids);freebsd-x64" />
+       <AspNetCore50RuntimePackRids Include="@(AspNetCore31RuntimePackRids);linux-musl-arm;win-arm64" />
+       <AspNetCore60RuntimePackRids Include="@(AspNetCore50RuntimePackRids);osx-arm64;linux-s390x" />
+       <AspNetCore70RuntimePackRids Include="@(AspNetCore60RuntimePackRids);linux-ppc64le" />
+diff --git a/src/redist/targets/SetBuildDefaults.targets b/src/redist/targets/SetBuildDefaults.targets
+index eac457403bd..f01c618b167 100644
+--- a/src/redist/targets/SetBuildDefaults.targets
++++ b/src/redist/targets/SetBuildDefaults.targets
+@@ -20,9 +20,6 @@
+         AND '$(Rid)' != 'ubuntu.18.04-x64'">true</IncludeSharedFrameworksForBackwardsCompatibilityTests>-->
+       <HighEntropyVA>true</HighEntropyVA>
+ 
+-      <!-- There is no asp.net runtime available for freebsd at the moment. Once there is one, we can remove the line below -->
+-      <IncludeAspNetCoreRuntime Condition=" '$(IncludeAspNetCoreRuntime)' == '' AND $(Rid.StartsWith('freebsd'))">false</IncludeAspNetCoreRuntime>
+-
+       <!-- Only use asset target fallback that we set (not implicit one to net461). -->
+       <!--<DisableImplicitAssetTargetFallback>true</DisableImplicitAssetTargetFallback>-->
+ 

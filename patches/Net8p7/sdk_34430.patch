@@ -1,0 +1,45 @@
+diff --git a/src/Tasks/Microsoft.NET.Build.Tasks/ResolveReadyToRunCompilers.cs b/src/Tasks/Microsoft.NET.Build.Tasks/ResolveReadyToRunCompilers.cs
+index 7509f0c9989..cd9038c9979 100644
+--- a/src/Tasks/Microsoft.NET.Build.Tasks/ResolveReadyToRunCompilers.cs
++++ b/src/Tasks/Microsoft.NET.Build.Tasks/ResolveReadyToRunCompilers.cs
+@@ -185,7 +185,7 @@ private bool GetCrossgen2TargetOS(out string targetOS)
+             string portablePlatform = NuGetUtils.GetBestMatchingRid(
+                     runtimeGraph,
+                     _targetPlatform,
+-                    new[] { "linux", "linux-musl", "osx", "win" },
++                    new[] { "linux", "linux-musl", "osx", "win", "freebsd" },
+                     out _);
+ 
+             // For source-build, allow the bootstrap SDK rid to be unknown to the runtime repo graph.
+@@ -211,6 +211,7 @@ private bool GetCrossgen2TargetOS(out string targetOS)
+                 "linux-musl" => "linux",
+                 "osx" => "osx",
+                 "win" => "windows",
++                "freebsd" => "freebsd",
+                 _ => null
+             };
+ 
+@@ -381,11 +382,6 @@ private bool GetCrossgen2ComponentsPaths(bool version5)
+                 toolFileName = "crossgen2.exe";
+                 v5_clrJitFileNamePattern = "clrjit-{0}.dll";
+             }
+-            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+-            {
+-                toolFileName = "crossgen2";
+-                v5_clrJitFileNamePattern = "libclrjit-{0}.so";
+-            }
+             else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+             {
+                 toolFileName = "crossgen2";
+@@ -393,8 +389,9 @@ private bool GetCrossgen2ComponentsPaths(bool version5)
+             }
+             else
+             {
+-                // Unknown platform
+-                return false;
++                // Generic Unix-like: linux, freebsd, and others.
++                toolFileName = "crossgen2";
++                v5_clrJitFileNamePattern = "libclrjit-{0}.so";
+             }
+ 
+             if (version5)

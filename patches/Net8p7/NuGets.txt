@@ -1,0 +1,4 @@
+https://github.com/Thefrank/dotnet-freebsd-crossbuild/releases/download/v8.0.100-preview.6.23330.14/runtime.freebsd-x64.Microsoft.NETCore.ILAsm.8.0.0-preview.6.23329.7.nupkg
+https://github.com/Thefrank/dotnet-freebsd-crossbuild/releases/download/v8.0.100-preview.6.23330.14/runtime.freebsd-x64.Microsoft.NETCore.ILDAsm.8.0.0-preview.6.23329.7.nupkg
+https://github.com/Thefrank/dotnet-freebsd-crossbuild/releases/download/v8.0.100-preview.6.23330.14/Microsoft.NETCore.App.Crossgen2.freebsd-x64.8.0.0-preview.6.23329.7.nupkg
+https://github.com/Thefrank/dotnet-freebsd-crossbuild/releases/download/v8.0.100-preview.6.23330.14/Microsoft.NETCore.App.Runtime.freebsd-x64.8.0.0-preview.6.23329.7.nupkg
