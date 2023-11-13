@@ -17,4 +17,4 @@ Vary! Please check `./patches`
   - check `dmesg` if something was killed because of memory issues try increasing RAM (e.g., building in a VM) or increasing swap
   - Something else? Let me know.
 - Hangs / Fails to finish
- - Break and try again
+  - Break and try again
