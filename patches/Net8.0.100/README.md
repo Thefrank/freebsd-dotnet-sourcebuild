@@ -31,7 +31,7 @@
   - [ ] `git grep -l "/bin/bash" | xargs sed -i '' -e 's/\/bin\/bash/\/usr\/bin\/env bash/g'`
   - [ ] `ln -s /usr/local/bin/bash /bin/bash`
 - Build
-- `./build.sh --with-packages /PATH/TO/Artifacts/ --with-sdk ~/PATH/TO/SDK/ --clean-while-building` 
+- `./build.sh --with-packages /PATH/TO/Artifacts/ --with-sdk /PATH/TO/SDK/ --clean-while-building` 
 
 ## Smoke Tests
 These require some additional patching to make sure they a) are not skipped and b) run correctly.
