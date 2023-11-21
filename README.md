@@ -22,3 +22,14 @@ Some builds can use `prep.sh` some can not
 - Hangs / Fails to finish
   - Unknown cause. `CTRL+T` check for very long `[uwait]`. `crossgen2` will sometimes do this. `CTRL+C` and try again
   - If feeling brave, `truss` to help troubleshoot
+ 
+## FreeBSD 14
+- Compile errors. Forwards declartions that never get resolved.
+  - See patch. Lazy and Ugly but works(tm)
+    - Fix in runtime via OS Version based IFDEF?
+- ASLR crashes
+  - `elfctl -e +noaslr dotnet` OR disable globally
+  - Help fix in runtime?
+- OpenSSL3 vs OpenSSL1.1
+  - OpenSSL1.1 appears to be a hard requirement AFAIK
+  - Help fix in runtime?
