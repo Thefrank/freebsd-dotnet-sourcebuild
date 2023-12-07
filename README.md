@@ -31,5 +31,8 @@ Some builds can use `prep.sh` some can not
   - `elfctl -e +noaslr dotnet` OR disable globally
   - Help fix in runtime?
 - OpenSSL3 vs OpenSSL1.1
-  - OpenSSL1.1 appears to be a hard requirement AFAIK
+  - ~~OpenSSL1.1 appears to be a hard requirement AFAIK~~
+    - Somewhat fixed in ports
   - Help fix in runtime?
+## Port?
+ - See: https://github.com/Thefrank/freebsd-dotnet-sourcebuild/tree/main/PortWIP
