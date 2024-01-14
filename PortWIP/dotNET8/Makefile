@@ -31,6 +31,8 @@ DOTNET_DEPENDS=	bash>0:shells/bash icu>0:devel/icu krb5>0:security/krb5 \
 		terminfo-db>0:misc/terminfo-db
 BUILD_DEPENDS=	${DOTNET_DEPENDS} \
 		cmake>0:devel/cmake \
+		git:devel/git \
+		python>0:lang/python \
 		gnugrep>0:textproc/gnugrep
 RUN_DEPENDS=	${DOTNET_DEPENDS}
 
