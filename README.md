@@ -1,5 +1,9 @@
 # FreeBSD dotNET Sourcebuild
 
+# This repo has been retired
+- Please use either the builtin `pkg` tool or build from ports
+- More info: https://www.freshports.org/lang/dotnet/
+
 ## Requirements
 - FreeBSD 12.4+, 8GB RAM, 75GB free space
   - more threads/RAM/space the faster
